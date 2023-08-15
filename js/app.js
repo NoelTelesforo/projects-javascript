@@ -17,3 +17,14 @@ function cargarEventListeners() {
     // Vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 }
+
+
+// Funciones
+
+function agregarCurso(e) {
+    e.preventDefault();
+    if(e.target.classList.contains('agregar-carrito')) {
+        const curso = e.target.parentElement.parentElement;
+        leerDatosCurso(curso);
+    }
+}
