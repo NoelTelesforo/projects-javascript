@@ -82,3 +82,10 @@ function carritoHTML() {
         contenedorCarrito.appendChild(row);
     });
 }
+
+
+function vaciarCarrito() {
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+}
