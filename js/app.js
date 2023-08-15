@@ -28,3 +28,28 @@ function agregarCurso(e) {
         leerDatosCurso(curso);
     }
 }
+
+function leerDatosCurso(curso) {
+    const infoCurso = {
+        imagen: curso.querySelector('img').src,
+        titulo: curso.querySelector('h4').textContent,
+        precio: curso.querySelector('.precio span').textContent,
+        id: curso.querySelector('a').getAttribute('data-id'),
+        cantidad: 1
+    }
+
+    if(articulosCarito.some(curso => curso.id === infoCurso.id)) {
+        const cursos = articulosCarito.map( curso => {
+            if(curso.id === infoCurso.id) {
+                curso.cantidad++;
+                return curso;
+            } else {
+                return curso;
+            }
+        })
+        articulosCarito = [...cursos];
+    } else {
+        articulosCarito = [...articulosCarito, infoCurso];
+    }
+    carritoHTML();
+}
